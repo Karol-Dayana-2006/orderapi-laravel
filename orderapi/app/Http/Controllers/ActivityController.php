@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -81,8 +82,13 @@ class ActivityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Activity $activity)
     {
-        //
+        $activity->delete();
+        $response = [
+            'message' => 'registro eliminado exitosamente',
+            'causal' => $activity
+        ];
+        return response()->json($response, Response::HTTP_OK);
     }
 }
