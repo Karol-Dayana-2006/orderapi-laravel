@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Causal;
+use App\Models\TypeActivity;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Validator;
 
-class CausalController extends Controller
+class TypeActivityController extends Controller
 {
     private $rules= [
         'description'=> 'required|string|min:3|max:100'
@@ -16,14 +15,13 @@ class CausalController extends Controller
       'description' => 'Descripción'  
     ];
 
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $causals = Causal::all();
-        return response()->json($causals, Response::HTTP_OK);
+        $types = TypeActivity::all();
+        return response()->json($types, Response::HTTP_OK);
     }
 
     /**
@@ -36,10 +34,10 @@ class CausalController extends Controller
         {
             return $data;
         }
-        $causal = Causal::create($request->all());
+        $types = TypeActivity::create($request->all());
         $response = [
             'message' => 'registro creado exitosamente',
-            'causal' => $causal
+            'causal' => $types
         ];
         return response()->json($response, Response::HTTP_CREATED);
     }
@@ -47,25 +45,25 @@ class CausalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Causal $causal)
+    public function show(TypeActivity $typeActivity)
     {
-        return response()->json($causal, Response::HTTP_OK);
+        return response()->json($typeActivity, Response::HTTP_OK);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Causal $causal)
+    public function update(Request $request, TypeActivity $typeActivity)
     {
         $data = $this->applyValidator($request, $this->rules, $this->traductionAttributes);
         if (!empty($dara)) 
         {
             return $data;
         }
-        $causal->update($request->all());
+        $typeActivity->update($request->all());
         $response = [
             'message' => 'registro actualizado exitosamente',
-            'causal' => $causal
+            'causal' => $typeActivity
         ];
         return response()->json($response, Response::HTTP_OK);
     }
@@ -73,12 +71,12 @@ class CausalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Causal $causal)
+    public function destroy(TypeActivity $typeActivity)
     {
-        $causal->delete();
+        $typeActivity->delete();
         $response = [
             'message' => 'registro eliminado exitosamente',
-            'causal' => $causal
+            'causal' => $typeActivity
         ];
         return response()->json($response, Response::HTTP_OK);
     }

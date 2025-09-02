@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "7e593f37-d46f-4242-b7ea-6d7d05531697",
+		"name": "ORDERAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47999771",
+		"_collection_link": "https://arbelaezcorteskaroldayana-5132861.postman.co/workspace/arbelaezcorteskaroldayana's-Wor~7ed3c175-3dcb-404b-8e0e-f48c6a66774c/collection/47999771-7e593f37-d46f-4242-b7ea-6d7d05531697?action=share&source=collection_link&creator=47999771"
+	},
+	"item": [
+		{
+			"name": "Causal",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/causal",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"causal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/causal/2",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"causal",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"description\": \"Causal API\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/causal",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"causal"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
